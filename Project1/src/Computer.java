@@ -2,20 +2,19 @@ import java.lang.reflect.Constructor;
 
 import javax.swing.AbstractAction;
 
-public class Computer {
+//this is a final class because it cannot be inherited by other class
+final class Computer extends AbstractClass_SO{
 
     //Attributes of the Computer class (these always should be initialized)
     final String product = "PC";
     int price = 0;
     String brand = "no_brand";
-    String os = "no_os";
 
     
     //The constructor is a special method of the class, it initializes the objects in the other classes.
-    public Computer(int p, String brand, String os) {
+    public Computer(int p, String brand) {
         price = p;
         this.brand = brand;
-        this.os = os;
     }
 
     //This is a constructor too, but the difference is that it doesn't initializes the object
@@ -37,6 +36,17 @@ public class Computer {
         System.out.println("Turning off the PC");
         System.out.println("PC is off!");
     }
+
+
+    //This method must be implemented, because is an abstract method of the super class
+    @Override
+    void printSO() {
+        System.out.println(SO);
+    }
+
+    
+     
+
     
 }
 
