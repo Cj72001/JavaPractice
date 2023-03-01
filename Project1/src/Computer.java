@@ -6,9 +6,10 @@ import javax.swing.AbstractAction;
 final class Computer extends AbstractClass_SO{
 
     //Attributes of the Computer class (these always should be initialized)
-    final String product = "PC";
-    int price = 0;
-    String brand = "no_brand";
+    //We'll use encapsulation (private attributes, public methods setters and getters)
+    final private String product = "PC";
+    private int price = 0;
+    private String brand = "no_brand";
 
     
     //The constructor is a special method of the class, it initializes the objects in the other classes.
@@ -43,6 +44,30 @@ final class Computer extends AbstractClass_SO{
     void printSO() {
         System.out.println(SO);
     }
+
+    //Getters and Setters
+    public String getProduct() {
+        return product;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+
+    
 
     
      
