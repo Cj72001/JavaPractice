@@ -3,8 +3,13 @@ abstract class Animal {
     
     private String animalName = "no_name";
 
+
+    //abstract class can haves abstract and normal methods:
+    //abstract method:
     abstract void animalSound();
 
+
+    //normal methods:
     public String getAnimalName() {
         return animalName;
     }
