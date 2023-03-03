@@ -1,40 +1,23 @@
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
+
+        Scanner myObj = new Scanner(System.in);
+
+        System.out.println("Enter name, age and salary:");
+    
+        // String input
+        String name = myObj.nextLine();
+    
+        // Numerical input
+        int age = myObj.nextInt();
+        double salary = myObj.nextDouble();
+    
+        // Output input by user
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Salary: " + salary);
         
-
-    System.out.println("Levels for 'LEVEL ENUM': ");
-    
-    for(Level le:Level.values()){
-        System.out.println(le);
-    }
-
-    String respuesta = "m";
-    Level l = Level.NO_LEVEL;
-    
-    if(respuesta.equals("e")){
-        l = Level.EASY;
-    }
-    else if(respuesta.equals("m")){
-        l = Level.MEDIUM;
-    }
-    else{
-        l = Level.HIGH;
-    }
-    
-
-    switch(l){
-        case EASY:
-        System.out.println("Welcome to the easy level");
-        break;
-
-        case MEDIUM:
-        System.out.println("Welcome to the medium level");
-        break;
-
-        case HIGH:
-        System.out.println("Welcome to the high level");
-        break;
-    }
-
-    }
+}
 }
