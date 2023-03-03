@@ -1,21 +1,20 @@
-//Abstract class, it must be inherited to access to this class
-abstract class Animal {
+//Interface, it must be implemented to access to this class
+//An interface is a completely "abstract class" that is used to group related methods with empty bodies
+interface Animal {
+
+    //~Interface attributes are by default public, static and final
+    String nature = "Animal";
     
-    private String animalName = "no_name";
-
-
-    //abstract class can haves abstract and normal methods:
+    //~Interface methods are by default abstract and public
+    //Interface class can haves abstract and normal methods:
     //abstract method:
-    abstract void animalSound();
+    //abstract void animalSound();
 
 
-    //normal methods:
-    public String getAnimalName() {
-        return animalName;
-    }
+    //regular methods:
 
-    public void setAnimalName(String animalName) {
-        this.animalName = animalName;
-    }
+    public void animalSound();
+
+    public void animalName();
 
 }
