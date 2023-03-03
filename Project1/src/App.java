@@ -1,23 +1,15 @@
-import java.util.Scanner;
+import java.time.LocalDateTime; // Import the LocalDateTime class
+import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Scanner myObj = new Scanner(System.in);
-
-        System.out.println("Enter name, age and salary:");
+        LocalDateTime myDateObj = LocalDateTime.now();
+        System.out.println("Before formatting: " + myDateObj);
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     
-        // String input
-        String name = myObj.nextLine();
-    
-        // Numerical input
-        int age = myObj.nextInt();
-        double salary = myObj.nextDouble();
-    
-        // Output input by user
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Salary: " + salary);
+        String formattedDate = myDateObj.format(myFormatObj);
+        System.out.println("After formatting: " + formattedDate);
         
 }
 }
