@@ -1,43 +1,62 @@
-
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
     
-        //Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects.
+        //The try statement allows you to define a block of code to be tested for errors while it is being executed.
+        //The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+        
 
-        //Using primitive data types:
-        int n1 = 764;
+        //This will generate an error, because myNumbers[10] does not exist.
+        //if an error occurs, we can use try...catch to catch the error and execute some code to handle it
+        try {
+            int[] myNumbers = {1, 2, 3};
+            System.out.println(myNumbers[10]);
+          } catch (Exception e) {
+            System.out.println("Array not found");
+          }
 
-        //Using primitive data types as objects, by Warapper classes:
-        Integer n2 = 229;
+        
+        //The finally statement lets you execute code, after try...catch, regardless of the result
+        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter first number: ");
+        int n1 = sc.nextInt();
+
+        System.out.println("Enter second number: ");
+        int n2 = sc.nextInt();
+
+        int res = 0;
+        
+        try {
+
+            res = n1/n2;
+
+          } catch (Exception e) {
+
+            System.out.println("Something were wrong: "+e);
+            System.out.println("we going to use the same first number...");
+            res = n1/n1;
+            
+          } finally {
+            System.out.println("The result is: "+res);
+          }
 
 
 
-        System.out.println("As numbers: "+n1+", "+n2);
-        System.out.println("As numbers n1 + n2: "+ (n1+n2));
+          //The throw statement allows you to create a custom error
+          checkAge(15); // Set age to 15 (which is below 18...)
 
-
-        String n1Str = String.valueOf(n1);
-        String n2Str = n2.toString();
-
-        System.out.println("As strings: "+n1Str+", "+n2Str);
-
-
-        //Printing each number of full number of n1 ^ n2:
-
-        int n3 = 0;
-
-        for(int i =0; i<n1Str.length(); i++){
-            n3 = Character.getNumericValue(n1Str.charAt(i));
-            System.out.println(n3);
-        }
-
-        System.out.println("--------");
-
-        for(int i =0; i<n2Str.length(); i++){
-            n3 = Character.getNumericValue(n2Str.charAt(i));
-            System.out.println(n3);
-        }
 
     }
+
+    static void checkAge(int age) {
+        if (age < 18) {
+          throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+        }
+        else {
+          System.out.println("Access granted - You are old enough!");
+        }
+      }
 }
