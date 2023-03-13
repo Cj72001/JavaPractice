@@ -1,46 +1,52 @@
-
+import java.util.LinkedList;
+import java.util.function.Consumer;
 
 //There are two ways to create a thread.
 //Another way to create a thread is to implement the Runnable interface
 //It can be created by extending the Thread class and overriding its run() method:
-public class App extends Thread{
+public class App{
 
-    //Attribute that belongs to the App class:
-    public static int var = 0;
 
     public static void main(String[] args) throws Exception {
-    //Running Threads
-    //If the class extends the Thread class, the thread can be run by creating 
-    //an instance of the class and call its start() method
-
-    App thread = new App();
-
-    //This method come from Thread class
-    thread.start();
-
-    System.out.println(var);
-
-    //All after this line is out of the thread, so to prevent 
-    //concurrency problems we use isAlive() method of thread object
-    //for waiting the end of the thread that is running at that moment
-    while(thread.isAlive()){
-        System.out.println("Waiting...");
-    }
-
-    //the thread finished
-    var++;
-    System.out.println(var);
         
+        LinkedList l = new LinkedList<Integer>();
+
+        for(int i=1; i<=5; i++){
+            l.add(i);
+        }
+
+        l.forEach(n->{
+            if((Integer)n!=4){
+                System.out.println(n);
+            }
+        });
+
+        System.out.println("_____________________");
+
+    //Lambda expressions can be stored in variables if the variable's type 
+    //is an interface which has only one method. The lambda expression should have the
+    //same number of parameters and the same return type as that method
+
+    Consumer<Integer> m = (n) ->{System.out.println(n);};
+
+    l.forEach(m);
+
+//To use a lambda expression in a method, the method should have a parameter with a 
+//single-method interface as its type. Calling the interface's method will run the lambda expression
+
+StringFunction changeStr = (s -> s = "New str");
+StringFunction addAsk = (s) -> s + "?";
+
+//sending the lambda methods above as a parameter:
+//but the methods will named as the name of the method of the interface
+printFormatted("Hello", changeStr);
+printFormatted("Hello", addAsk);
         
 }
 
-//This method is override from "Thread" class
-    @Override
-    public void run() {
-        System.out.println("This code is running in a thread");
-        var++;
-    }
-    
-
+public static void printFormatted(String str, StringFunction format) {
+    String result = format.run(str);
+    System.out.println(result);
+  }
 
 }
